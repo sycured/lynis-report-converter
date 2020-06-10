@@ -1,4 +1,4 @@
-FROM debian:stretch-slim
+FROM debian:buster-slim
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -6,7 +6,7 @@ RUN useradd -d /lynis-report-converter -U lynis
 
 RUN apt-get update \
     && apt-get upgrade -y \
-    && apt-get install -y --no-install-recommends \
+    && apt-get install -y --no-install-recommends libexcel-writer-xlsx-perl \
        htmldoc libxml-writer-perl libarchive-zip-perl libjson-perl \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
